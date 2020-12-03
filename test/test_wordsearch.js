@@ -20,7 +20,7 @@ describe("#wordSearch()", function() {
     assert.isFalse(result);
   });
 
-  it("should return true if the word is present", function() {
+  it("should return true if the word is present horizontally", function() {
     const result = wordSearch([
       ['A', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'],
       ['S', 'E', 'I', 'N', 'F', 'E', 'L', 'D'],
@@ -34,5 +34,25 @@ describe("#wordSearch()", function() {
     ], 'SEINFELD')
 
     assert.isTrue(result);
+  });
+
+  it("should return true if the word is present vertically", function() {
+    const result = wordSearch([
+      ['A', 'W', 'C', 'F', 'A', 'U', 'A', 'L'],
+      ['S', 'E', 'I', 'N', 'D', 'E', 'L', 'D'],
+      ['Y', 'F', 'C', 'F', 'M', 'U', 'A', 'L'],
+      ['H', 'M', 'J', 'T', 'I', 'V', 'R', 'G'],
+      ['W', 'H', 'C', 'S', 'S', 'E', 'R', 'L'],
+      ['B', 'F', 'R', 'E', 'S', 'E', 'Y', 'B'],
+      ['U', 'B', 'T', 'W', 'I', 'P', 'A', 'I'],
+      ['O', 'D', 'C', 'A', 'O', 'U', 'A', 'S'],
+      ['E', 'Z', 'K', 'F', 'N', 'U', 'A', 'L'],
+    ], 'ADMISSION')
+
+    assert.isTrue(result);
+  });
+
+  it("should return undefined if an empty matrix is passed", function() {
+    assert.isUndefined(wordSearch([]));
   });
 });
